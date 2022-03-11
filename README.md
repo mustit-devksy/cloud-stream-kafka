@@ -1,5 +1,5 @@
 ## 카프카 테스트
-- 로컬에서 브로커 3개 구성해서 간단 뇌절 테스트
+- 로컬에서 브로커 3개 구성해서 카프카 스트림 흐름 간단 뇌절 테스트
 ### Kafka Run
 - https://github.com/wurstmeister/kafka-docker
 ```shell
