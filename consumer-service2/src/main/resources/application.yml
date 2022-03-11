@@ -1,0 +1,28 @@
+server.port: 8082
+
+spring:
+  cloud:
+    stream:
+      function:
+        definition: orderDelivery;
+      bindings:
+        orderDelivery-in-0:
+          destination: order-delivery
+        orderDelivery-out-0:
+          destination: order-complete
+        order-push:
+          destination: order-push
+      kafka:
+        binder:
+          brokers: "localhost:9093,localhost:9094,localhost:9095"
+        bindings:
+          orderDelivery-out-0:
+            producer:
+              configuration:
+                key:
+                  serializer: org.apache.kafka.common.serialization.StringSerializer
+          order-push:
+            producer:
+              configuration:
+                key:
+                  serializer: org.apache.kafka.common.serialization.StringSerializer

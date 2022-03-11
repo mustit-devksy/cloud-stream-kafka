@@ -1,0 +1,21 @@
+server.port: 8081
+
+spring:
+  cloud:
+    stream:
+      function:
+        definition: orderProcessing;
+      bindings:
+        orderProcessing-in-0:
+          destination: order-processing
+        orderProcessing-out-0:
+          destination: order-delivery
+      kafka:
+        binder:
+          brokers: "localhost:9093,localhost:9094,localhost:9095"
+        bindings:
+          orderProcessing-out-0:
+            producer:
+              configuration:
+                key:
+                  serializer: org.apache.kafka.common.serialization.StringSerializer

@@ -1,0 +1,4 @@
+rootProject.name = 'cloud-stream-kafka-example'
+
+include("producer-service", "consumer-service1", "consumer-service2", "consumer-service3")
+

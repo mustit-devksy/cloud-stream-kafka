@@ -1,0 +1,15 @@
+server.port: 8083
+
+spring:
+  cloud:
+    stream:
+      function:
+        definition: orderComplete;orderPush
+      bindings:
+        orderComplete-in-0:
+          destination: order-complete
+        orderPush-in-0:
+          destination: order-push
+      kafka:
+        binder:
+          brokers: "localhost:9093,localhost:9094,localhost:9095"
